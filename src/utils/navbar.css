@@ -1,0 +1,52 @@
+nav {
+  padding: 10px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+}
+
+.next-jobs-db {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.next-jobs-db:hover {
+  background-color: lightgrey;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+nav1 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+nav1 ul {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+nav1 ul:hover {
+  background-color: lightgrey;
+  border-radius: 8px;
+  padding: 10px;
+}
