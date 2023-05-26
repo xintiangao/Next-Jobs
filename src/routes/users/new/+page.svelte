@@ -1,8 +1,8 @@
 <script>
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-	import { get_root_for_style } from 'svelte/internal';
     import Navbar from '../../../Navbar.svelte';
     import { goto } from '$app/navigation';
+	import { isAuthenticated, authenticateUser, isLoggedIn } from '../../../utils/auth';
 
     let formErrors = {};
   
@@ -34,8 +34,16 @@
       });
   
       if (resp.status == 200) {
-        postSignUp();
-      } else {
+        const res = await authenticateUser(userData.username, userData.password)
+
+        if (res.success){
+            isAuthenticated.set(true)
+            postSignUp();
+        } else { 
+          isAuthenticated.set(false)
+          alert ('sign up successful but authentication failed');
+        }
+    } else {
         const res = await resp.json();
         formErrors = res.data;
       }

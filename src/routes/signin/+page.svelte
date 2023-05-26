@@ -4,6 +4,7 @@
   import Navbar from '../../Navbar.svelte';
   import { goto } from '$app/navigation';
   import { isLoggedIn } from '../../utils/auth';
+  import { authenticateUser } from '../../utils/auth'; 
 
   async function signIn() {
     try {
@@ -22,11 +23,9 @@
       let resp = await JSON(rawResp);
 
       if (resp.status === 200) {
-        // User signed in successfully
         goto('/postjob');
         isLoggedIn();
       } else {
-        // Error occurred during sign in
         const errorData = await resp.json();
         console.error('Sign in error:', errorData);
       }
@@ -69,7 +68,9 @@
     </div>
 
     <div class="form-control w-full mt-4">
-      <button class="btn btn-md" on:click={() => signIn(username, password)}>Log In</button>
+      <div class="form-control w-full mt-4">
+        <button class="btn btn-md" on:submit={() => authenticateUser}>Log In</button>
+      </div>
     </div>
   </form>
 </div>
