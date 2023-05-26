@@ -2,7 +2,7 @@
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     import Navbar from '../../../Navbar.svelte';
     import { goto } from '$app/navigation';
-	import { isAuthenticated, authenticateUser, isLoggedIn } from '../../../utils/auth';
+	import { isAuthenticated, authenticateUser} from '../../../utils/auth';
 
     let formErrors = {};
   
