@@ -1,10 +1,9 @@
 nav {
   padding: 10px;
-  background-color: #ffffff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  width: 30%;
   position: absolute;
   top: 0;
   left: 0;
@@ -31,7 +30,7 @@ nav1 {
   justify-content: flex-end;
   gap: 2rem;
   list-style: none;
-  margin: 0;
+  margin-right: 10px;
   padding: 10px;
 }
 
@@ -49,13 +48,6 @@ nav1 ul:hover {
   background-color: lightgrey;
   border-radius: 8px;
   padding: 10px;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  max-width: 200px;
-  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
