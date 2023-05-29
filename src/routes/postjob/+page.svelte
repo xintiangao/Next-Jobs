@@ -20,27 +20,27 @@
         
         const jobData = {
 
-            user: getUserId(),
-            id: generateJobDataID(),
-            title: 'test',
-            minAnnualCompensation: '300000',
-            maxAnnualCompensation: '500000',
-            employer: 'testtesttesttest',
-            location: 'testtesttesttest',
-            description: 'testtesttesttest',
-            requirements: 'testtesttesttest',
-            applicationInstructions: 'testtesttesttest',
-
             // user: getUserId(),
             // id: generateJobDataID(),
-            // title: evt.target['title'].value,
-            // minAnnualCompensation: evt.target['minAnnualCompensation'].value,
-            // maxAnnualCompensation: evt.target['maxAnnualCompensation'].value,
-            // employer: evt.target['employer'].value,
-            // location: evt.target['location'].value,
-            // description: evt.target['description'].value,
-            // requirements: evt.target['requirements'].value,
-            // applicationInstructions: evt.target['applicationInstruction'].value,
+            // title: 'test',
+            // minAnnualCompensation: '300000',
+            // maxAnnualCompensation: '500000',
+            // employer: 'testtesttesttest',
+            // location: 'testtesttesttest',
+            // description: 'testtesttesttest',
+            // requirements: 'testtesttesttest',
+            // applicationInstructions: 'testtesttesttest',
+
+            user: getUserId(),
+            id: generateJobDataID(),
+            title: evt.target['title'].value,
+            minAnnualCompensation: evt.target['minAnnualCompensation'].value,
+            maxAnnualCompensation: evt.target['maxAnnualCompensation'].value,
+            employer: evt.target['employer'].value,
+            location: evt.target['location'].value,
+            description: evt.target['description'].value,
+            requirements: evt.target['requirements'].value,
+            applicationInstructions: evt.target['applicationInstruction'].value,
         };
 
         const response = await fetch(PUBLIC_BACKEND_BASE_URL + '/api/collections/jobs/records', {

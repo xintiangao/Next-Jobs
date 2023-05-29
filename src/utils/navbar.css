@@ -20,9 +20,10 @@ nav {
 }
 
 .next-jobs-db:hover {
-  background-color: lightgrey;
-  border-radius: 8px;
-  padding: 8px;
+  background-color: #FCC8C2;
+  border-radius: 10px;
+  font-size: 22px;
+  /* padding: 8px; */
 }
 
 nav1 {
@@ -45,9 +46,8 @@ nav1 ul {
 }
 
 nav1 ul:hover {
-  background-color: lightgrey;
-  border-radius: 8px;
-  padding: 10px;
+  background-color: #FCC8C2;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
