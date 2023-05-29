@@ -5,6 +5,7 @@
 	import { isAuthenticated, authenticateUser} from '../../../utils/auth';
 
     let formErrors = {};
+    let isLoading = false
   
     async function postSignUp() {
         goto('/postjob');
@@ -23,6 +24,8 @@
         password: evt.target['password'].value,
         passwordConfirm: evt.target['password-confirmation'].value
       };
+
+      isLoading = true
   
       const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/api/collections/users/records', {
         method: 'POST',
@@ -51,7 +54,12 @@
   </script>
 
     <Navbar />
-  
+    <div class="flex justify-center w-full">
+        <div class="alert alert-info shadow-l" style="width: 90%;">
+            <p class="text-left">Please sign up before you post a job.</p>
+        </div>
+    </div>
+
   <h1 class="text-center text-xl">Create an Account to Post a Job</h1>
   <div class="text-center">
       <a class="link-hover italic text-xs" href="/signin"
@@ -130,10 +138,23 @@
                   </label>
               {/if}
           </div>
-  
+
+        <div class="form-control w-full mt-8">
           <div class="form-control w-full mt-4">
+            {#if isLoading}
+            <div class="flex justify-center items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-700">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" />
+                <path fill="currentColor" d="M12 2v4m0 12v4m-4-4H2M18 2h4" />
+              </svg>
+              <span class="text-lg text-gray-700">Loading...</span>
+            </div>
+            {:else}
               <button class="btn btn-md">Create an Account</button>
+              {/if}
           </div>
       </form>
   </div>
+
+
   

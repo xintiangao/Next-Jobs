@@ -1,10 +1,18 @@
 <script>
-    import { authenticateUser, isAuthenticated, isLoggedIn, logOut } from "./utils/auth.js";
-    let userLoggedIn = isLoggedIn;
+    import { isAuthenticated, logOut } from "./utils/auth.js";
     import { goto } from '$app/navigation';
 
     function goToSignInPage() {
         goto ('/signin')
+    }
+  
+    function goToPostJobPage() {
+        if ($isAuthenticated){
+            goto('/postjob');
+        }
+        else {
+            goto('/users/new');
+        }
     }
 
 </script>
@@ -23,11 +31,13 @@
   
 <nav1>
     <ul>
-        <li><a href="postjob">Post a Job</a></li>
+        <button on:click={goToPostJobPage}>Post a Job</button>
     </ul>
     <ul>
-        <li>{#if $isAuthenticated}<button on:click={logOut}>Sign Out</button>
-            {:else}<a href="/signin" on:click={goToSignInPage}>Log In</a>{/if}</li>
+        {#if $isAuthenticated}
+            <button on:click={logOut}>Sign Out</button>
+        {:else}
+            <a href="/signin" on:click={goToSignInPage}>Log In</a>{/if}
     </ul>
 </nav1>
   

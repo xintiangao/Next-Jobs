@@ -2,73 +2,42 @@
     import Navbar from '../../Navbar.svelte';
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     import { goto } from '$app/navigation';
-    import { getTokenFromLocalStorage } from '../../utils/auth';
-    // import PocketBase from 'pocketbase';
+    import { getUserId } from '../../utils/auth';
 
-    // const pb = new PocketBase('http://127.0.0.1:5173');
+    let isLoading = false;
 
-    async function postPostJOb() {
-        goto('/');
-    }
-
-    
     async function postJob(evt) {
         evt.preventDefault()
-
+        
         const jobData = {
-            
-            // "collectionId": "t9mzd3reuf1yxpg",
-            // "collectionName": "jobs",
-            // "created": "2022-01-01 01:00:00.123Z",
-            // "updated": "2022-01-01 23:59:59.456Z",
-
-            "user": 'userID',
-            "title": "test",
-            "minAnnualCompensation": 123,
-            "maxAnnualCompensation": 123,
-            "description": "test",
-            "requirements": "test",
-            "applicationInstructions": "test",
-            "location": "test",
-            "employer": "test"
-
-        } ;
-        // const jobData = {
-        //     title: evt.target['title'].value,
-        //     minAnnualCompensation: evt.target['minAnnualCompensation'].value,
-        //     maxAnnualCompensation: evt.target['maxAnnualCompensation'].value,
-        //     companyName: evt.target['employer'].value,
-        //     jobLocation: evt.target['location'].value,
-        //     description: evt.target['description'].value,
-        //     requirements: evt.target['requirements'].value,
-        //     applicationInstructions: evt.target['applicationInstruction'].value,
-        // } ;
-
-        console.log(jobData)
-
-    try {
+            user: getUserId(),
+            title: evt.target['title'].value,
+            minAnnualCompensation: evt.target['minAnnualCompensation'].value,
+            maxAnnualCompensation: evt.target['maxAnnualCompensation'].value,
+            employer: evt.target['employer'].value,
+            location: evt.target['location'].value,
+            description: evt.target['description'].value,
+            requirements: evt.target['requirements'].value,
+            applicationInstructions: evt.target['applicationInstruction'].value,
+        };
+        
+        let isLoading = true;
 
         const response = await fetch(PUBLIC_BACKEND_BASE_URL + '/api/collections/jobs/records', {
         method: 'POST',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': getTokenFromLocalStorage()
         },
         body: JSON.stringify(jobData)
         });
 
-        if (response.status === 200) {
-        alert ('successful');
-        postPostJOb();
+        if (response.status == 200) {
+        goto (`/jobs/${jobData.id}`)
         } else {
-            console.error(response.Text);
+            console.error('Failed to create record:', error);
         }
-    } catch (error) {
-        console.error('An error occurred while posting the job:', error);
-    }
 }
-
 
 </script>
 
@@ -135,12 +104,21 @@
         </div>
             
         <div class="form-control w-full mt-8">
-            <button type="submit" class="btn btn-md">
-              Post Job
-            </button>
-          </div>
-          
-        <div class = "mt-28"></div>
+            <div class="form-control w-full mt-4">
+              {#if isLoading}
+              <div class="flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-700">
+                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" />
+                  <path fill="currentColor" d="M12 2v4m0 12v4m-4-4H2M18 2h4" />
+                </svg>
+                <span class="text-lg text-gray-700">Loading...</span>
+              </div>
+              {:else}
+              <button type="submit" class="btn btn-md">Submit</button>
+              {/if}
+            </div>
+        </div>
     </div>
-    </form>
+</form>
+
 

@@ -2,7 +2,9 @@
     import humanize from "humanize-plus";
     import SvelteMarkdown from 'svelte-markdown';
     export let data;
+    import Navbar from "../../../Navbar.svelte";
 </script>
+  <Navbar />
   
   <div class="mt-10">
     <div class="flex">

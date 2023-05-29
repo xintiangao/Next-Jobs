@@ -17,7 +17,7 @@ nav {
   gap: 1rem;
   font-size: 20px;
   font-weight: bold;
-  padding: 8px;
+  padding: 7px;
 }
 
 .next-jobs-db:hover {
@@ -49,4 +49,17 @@ nav1 ul:hover {
   background-color: lightgrey;
   border-radius: 8px;
   padding: 10px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .btn {
+      max-width: 100%;
+  }
 }
