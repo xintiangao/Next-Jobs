@@ -10,7 +10,7 @@
   
   <h1 class="text-primary text-center text-xl font-bold">Find Your Next Job</h1>
   
-  <div class="text-primary overflow-x-auto w-full">
+  <div class="text-primary overflow-x-auto w-full mb-20">
     {#each data.jobs as job}
     <div class="flex flex-col mt-10 ml-20 mr-20">
       <div>

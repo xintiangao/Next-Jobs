@@ -28,7 +28,7 @@
 </style>
 
 <nav>
-    <div class="text-primary next-jobs-db">
+    <div class="text-primary next-jobs-db mb-10">
       <a href="/">
         <button>NEXT Jobs DB</button>
       </a>
