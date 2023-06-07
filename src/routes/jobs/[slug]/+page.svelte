@@ -2,10 +2,8 @@
     import humanize from "humanize-plus";
     import SvelteMarkdown from 'svelte-markdown';
     export let data;
-    import Navbar from "../../../Navbar.svelte";
 	import { getUserId } from "../../../utils/auth";
 </script>
-  <Navbar />
 
   <div class="text-primary mt-10 ml-20">
     <div class="flex">

@@ -1,5 +1,4 @@
 <script>
-    import Navbar from '../../../../Navbar.svelte';
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     import { goto } from '$app/navigation';
     import { getTokenFromLocalStorage, getUserId } from '../../../../utils/auth';
@@ -61,9 +60,12 @@
         }
 }
 
+
+
+
 </script>
 
-<Navbar />
+
 <form on:submit={updateJob} class="w-full">
     <div class = "container mx-auto px-2 lg:px-0">
         <div class = "form-control w-full">

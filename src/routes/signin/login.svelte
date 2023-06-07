@@ -1,5 +1,4 @@
 <script>
-    import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
     let formErrors = {};
 </script>
   

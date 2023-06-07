@@ -1,13 +1,11 @@
 <script>
   import humanize from 'humanize-plus';
   export let data;
-  import Navbar from '../Navbar.svelte';
 </script>
 
 
 <div>
-  <Navbar />
-  
+
   <h1 class="text-primary text-center text-xl font-bold">Find Your Next Job</h1>
   
   <div class="text-primary overflow-x-auto w-full mb-20">
